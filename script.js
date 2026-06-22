@@ -48,11 +48,45 @@ window.addEventListener('scroll', () => {
 // Burger menu
 const burger = document.getElementById('burger');
 const navLinks = document.querySelector('.nav-links');
-burger.addEventListener('click', () => navLinks.classList.toggle('open'));
-document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+function closeMobileMenu() {
+    navLinks.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+}
+burger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(isOpen));
+});
 
 // Smooth scroll
-window.scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+function scrollToSection(id, updateHash = true) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    if (id === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    if (updateHash) {
+        history.pushState(null, '', `#${id}`);
+    }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+        const id = link.getAttribute('href').slice(1);
+        if (!id || !document.getElementById(id)) return;
+
+        e.preventDefault();
+        closeMobileMenu();
+        scrollToSection(id);
+    });
+});
+
+document.querySelectorAll('[data-scroll-target]').forEach(btn => {
+    btn.addEventListener('click', () => scrollToSection(btn.dataset.scrollTarget));
+});
 
 // Counters
 const counterObserver = new IntersectionObserver((entries) => {
@@ -168,7 +202,10 @@ document.getElementById('submit-btn').addEventListener('click', () => {
 });
 
 // Back to top
-backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState(null, '', '#home');
+});
 
 // Scroll animations
 const animObs = new IntersectionObserver((entries) => {

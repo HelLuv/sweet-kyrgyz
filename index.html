@@ -10,10 +10,10 @@
 <body>
 
 <nav class="navbar" id="navbar">
-    <div class="nav-logo">
+    <a href="#home" class="nav-logo" aria-label="На главную">
         <span class="logo-icon">🍰</span>
         <span class="logo-text">Сладкий Кыргызстан</span>
-    </div>
+    </a>
     <ul class="nav-links">
         <li><a href="#home" class="nav-link">Главная</a></li>
         <li><a href="#about" class="nav-link">О нас</a></li>
@@ -22,9 +22,9 @@
         <li><a href="#recipes" class="nav-link">Рецепты</a></li>
         <li><a href="#contact" class="nav-link">Контакты</a></li>
     </ul>
-    <div class="burger" id="burger">
+    <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
         <span></span><span></span><span></span>
-    </div>
+    </button>
 </nav>
 
 <section class="hero" id="home">
@@ -34,8 +34,8 @@
         <h1 class="hero-title">Кондитерские<br/><em>Кыргызстана</em></h1>
         <p class="hero-sub">Традиции, вкус и мастерство — всё это о наших кондитерах.</p>
         <div class="hero-btns">
-            <button class="btn btn-primary" onclick="scrollTo('catalog')">Смотреть каталог</button>
-            <button class="btn btn-outline" onclick="scrollTo('bakeries')">Найти кондитерскую</button>
+            <button class="btn btn-primary" type="button" data-scroll-target="catalog">Смотреть каталог</button>
+            <button class="btn btn-outline" type="button" data-scroll-target="bakeries">Найти кондитерскую</button>
         </div>
         <div class="hero-stats">
             <div class="stat"><span class="stat-num" data-target="150">0</span><span class="stat-label">Кондитерских</span></div>
@@ -343,7 +343,7 @@
         <div class="gallery-grid">
             <div class="gallery-item tall"><img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&q=80" alt="Торт"/></div>
             <div class="gallery-item"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80" alt="Пирожные"/></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562591718-32b7dc29f4bb?w=400&q=80" alt="Макаруны"/></div>
+            <div class="gallery-item"><img src="https://unsplash.com/photos/a-close-up-of-a-tray-of-macaroons-DXorwc7TLFg" alt="Макаруны"/></div>
             <div class="gallery-item wide"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80" alt="Десерты"/></div>
             <div class="gallery-item"><img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=400&q=80" alt="Шоколад"/></div>
             <div class="gallery-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&q=80" alt="Кексы"/></div>
@@ -361,24 +361,24 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon">📍</div>
-                    <div><strong>Главный офис</strong><p>ул. Киевская, 88, Бишкек</p></div>
+                    <div><strong>Главный офис</strong><p><a href="https://www.google.com/maps/search/?api=1&query=%D1%83%D0%BB.%20%D0%9A%D0%B8%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%2C%2088%2C%20%D0%91%D0%B8%D1%88%D0%BA%D0%B5%D0%BA" target="_blank" rel="noopener noreferrer">ул. Киевская, 88, Бишкек</a></p></div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
-                    <div><strong>Телефон</strong><p>+996 312 99-88-77</p><p>+996 700 55-44-33</p></div>
+                    <div><strong>Телефон</strong><p><a href="tel:+996312998877">+996 312 99-88-77</a></p><p><a href="tel:+996700554433">+996 700 55-44-33</a></p></div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">✉️</div>
-                    <div><strong>Email</strong><p>info@sweetkg.com</p></div>
+                    <div><strong>Email</strong><p><a href="mailto:info@sweetkg.com">info@sweetkg.com</a></p></div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">🕐</div>
                     <div><strong>Режим работы</strong><p>Пн–Пт: 09:00 – 18:00</p><p>Сб–Вс: 10:00 – 16:00</p></div>
                 </div>
                 <div class="social-links">
-                    <a href="#" class="social-btn">Instagram</a>
-                    <a href="#" class="social-btn">WhatsApp</a>
-                    <a href="#" class="social-btn">Telegram</a>
+                    <a href="https://www.instagram.com/sweetkg" class="social-btn" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://wa.me/996700554433" class="social-btn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <a href="https://t.me/sweetkg" class="social-btn" target="_blank" rel="noopener noreferrer">Telegram</a>
                 </div>
             </div>
             <div class="contact-form">
@@ -419,7 +419,7 @@
             </div>
             <div>
                 <h4>Информация</h4>
-                <ul><li><a href="#">О проекте</a></li><li><a href="#">Добавить кондитерскую</a></li><li><a href="#">Реклама</a></li></ul>
+                <ul><li><a href="#about">О проекте</a></li><li><a href="#contact">Добавить кондитерскую</a></li><li><a href="#contact">Реклама</a></li></ul>
             </div>
         </div>
         <div class="footer-bottom"><p>©️ 2026 Сладкий Кыргызстан. Сделано с ❤️ в Бишкеке</p></div>

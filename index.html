@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Кондитерская Кыргызстана</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-logo">
+        <span class="logo-icon">🍰</span>
+        <span class="logo-text">Сладкий Кыргызстан</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Главная</a></li>
+        <li><a href="#about" class="nav-link">О нас</a></li>
+        <li><a href="#catalog" class="nav-link">Каталог</a></li>
+        <li><a href="#bakeries" class="nav-link">Кондитерские</a></li>
+        <li><a href="#recipes" class="nav-link">Рецепты</a></li>
+        <li><a href="#contact" class="nav-link">Контакты</a></li>
+    </ul>
+    <div class="burger" id="burger">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">Добро пожаловать в мир сладостей</p>
+        <h1 class="hero-title">Кондитерские<br/><em>Кыргызстана</em></h1>
+        <p class="hero-sub">Традиции, вкус и мастерство — всё это о наших кондитерах.</p>
+        <div class="hero-btns">
+            <button class="btn btn-primary" onclick="scrollTo('catalog')">Смотреть каталог</button>
+            <button class="btn btn-outline" onclick="scrollTo('bakeries')">Найти кондитерскую</button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat"><span class="stat-num" data-target="150">0</span><span class="stat-label">Кондитерских</span></div>
+            <div class="stat"><span class="stat-num" data-target="500">0</span><span class="stat-label">Видов сладостей</span></div>
+            <div class="stat"><span class="stat-num" data-target="30">0</span><span class="stat-label">Лет традиций</span></div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="cake-float">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="Торт" class="hero-img"/>
+            <div class="badge badge-1">🎂 Свадебные торты</div>
+            <div class="badge badge-2">⭐ Премиум качество</div>
+            <div class="badge badge-3">🇰🇬 Сделано в КР</div>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">Наша история</span>
+            <h2 class="section-title">О кондитерском искусстве в Кыргызстане</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-img-wrap">
+                <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80" alt="Пекарня" class="about-img"/>
+                <div class="about-img-accent"></div>
+            </div>
+            <div class="about-text">
+                <p>Кондитерское искусство в Кыргызстане уходит корнями в глубокую историю. Веками кыргызские хозяйки передавали рецепты из поколения в поколение.</p>
+                <p>Сегодня кондитерская индустрия объединяет сотни мастеров — от семейных пекарен до современных кондитерских с европейским оборудованием.</p>
+                <div class="about-tabs">
+                    <button class="tab-btn active" data-tab="history">История</button>
+                    <button class="tab-btn" data-tab="traditions">Традиции</button>
+                    <button class="tab-btn" data-tab="modern">Современность</button>
+                </div>
+                <div class="tab-content active" id="tab-history">
+                    <p>С древних времён на территории Кыргызстана готовили бозо, чалкан, курут. Кондитерское дело получило развитие в XX веке с открытием первых государственных пекарен.</p>
+                </div>
+                <div class="tab-content" id="tab-traditions">
+                    <p>Боорсок, чак-чак, жент — до сих пор занимают особое место на праздничных столах. Их готовят на тоях, свадьбах и религиозных праздниках.</p>
+                </div>
+                <div class="tab-content" id="tab-modern">
+                    <p>Современные кондитеры успешно сочетают национальные рецепты с европейскими технологиями, создавая авторские десерты и участвуя в международных конкурсах.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="catalog" id="catalog">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">Ассортимент</span>
+            <h2 class="section-title">Каталог сладостей</h2>
+            <p class="section-desc">Нажмите на карточку, чтобы узнать подробности</p>
+        </div>
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="cake">Торты</button>
+            <button class="filter-btn" data-filter="pastry">Выпечка</button>
+            <button class="filter-btn" data-filter="candy">Конфеты</button>
+            <button class="filter-btn" data-filter="national">Национальные</button>
+        </div>
+        <div class="catalog-grid">
+            <div class="product-card" data-category="cake" data-id="1">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&q=80" alt="Свадебный торт"/>
+                    <div class="card-overlay"><button class="card-btn">Подробнее</button></div>
+                    <span class="card-badge">Хит продаж</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Торты</span>
+                    <h3 class="card-name">Свадебный торт «Аксай»</h3>
+                    <p class="card-desc">Многоярусный торт с ручной росписью и съедобными цветами.</p>
+                    <div class="card-footer"><span class="card-price">от 3 500 сом</span><div class="card-stars">★★★★★</div></div>
+                </div>
+            </div>
+            <div class="product-card" data-category="cake" data-id="2">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&q=80" alt="Шоколадный торт"/>
+                    <div class="card-overlay"><button class="card-btn">Подробнее</button></div>
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Торты</span>
+                    <h3 class="card-name">Торт «Иссык-Куль»</h3>
+                    <p class="card-desc">Шоколадный бисквит с голубичным муссом, вдохновлённый озером.</p>
+                    <div class="card-footer"><span class="card-price">от 1 800 сом</span><div class="card-stars">★★★★☆</div></div>
+                </div>
+            </div>
+            <div class="product-card" data-category="pastry" data-id="3">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=400&q=80" alt="Эклеры"/>
+                    <div class="card-overlay"><button class="card-btn">Подробнее</button></div>
+                    <span class="card-badge new">Новинка</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Выпечка</span>
+                    <h3 class="card-name">Эклеры «Ала-Тоо»</h3>
+                    <p class="card-desc">Воздушные эклеры с кремом из местного мёда и фисташкой.</p>
+                    <div class="card-footer"><span class="card-price">от 120 сом/шт</span><div class="card-stars">★★★★★</div></div>
+                </div>
+            </div>
+            <div class="product-card" data-category="pastry" data-id="4">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80" alt="Круассаны"/>
+                    <div class="card-overlay"><button class="card-btn">Подробнее</button></div>
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Выпечка</span>
+                    <h3 class="card-name">Круассаны с маком</h3>
+                    <p class="card-desc">Слоёные круассаны с маковой пастой и ванилью.</p>
+                    <div class="card-footer"><span class="card-price">от 80 сом/шт</span><div class="card-stars">★★★★☆</div></div>
+                </div>
+            </div>
+            <div class="product-card" data-category="candy" data-id="5">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?w=400&q=80" alt="Конфеты"/>
+                    <div class="card-overlay"><button class="card-btn">Подробнее</button></div>
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Конфеты</span>
+                    <h3 class="card-name">Набор «Манас»</h3>
+                    <p class="card-desc">Ручные шоколадные конфеты с орехами Тянь-Шаня.</p>
+                    <div class="card-footer"><span class="card-price">от 650 сом</span><div class="card-stars">★★★★★</div></div>
+                </div>
+            </div>
+            <div class="product-card" data-category="national" data-id="6">
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&q=80" alt="Боорсок"/>
+                    <div class="card-overlay"><button class="card-btn">Подробнее</button></div>
+                    <span class="card-badge trad">Традиционный</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-cat">Национальные</span>
+                    <h3 class="card-name">Боорсок праздничный</h3>
+                    <p class="card-desc">Традиционные жареные лепёшки — угощение на каждом тое.</p>
+                    <div class="card-footer"><span class="card-price">от 200 сом/кг</span><div class="card-stars">★★★★★</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal-overlay" id="modal">
+    <div class="modal-box">
+        <button class="modal-close" id="modal-close">✕</button>
+        <div class="modal-inner" id="modal-inner"></div>
+    </div>
+</div>
+
+<section class="bakeries" id="bakeries">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">Адреса</span>
+            <h2 class="section-title">Лучшие кондитерские</h2>
+        </div>
+        <div class="bakeries-tabs">
+            <button class="city-btn active" data-city="bishkek">🏙 Бишкек</button>
+            <button class="city-btn" data-city="osh">🏛 Ош</button>
+            <button class="city-btn" data-city="jalal">🌿 Джалал-Абад</button>
+            <button class="city-btn" data-city="karakol">🏔 Каракол</button>
+        </div>
+        <div class="city-panel active" id="city-bishkek">
+            <div class="bakery-list">
+                <div class="bakery-item">
+                    <div class="bakery-img"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&q=80" alt="Кондитерская"/></div>
+                    <div class="bakery-info">
+                        <h3>«Наргиза» — Премиум кондитерская</h3>
+                        <p>📍 ул. Чуй, 155, Бишкек</p>
+                        <p>📞 +996 312 45-67-89</p>
+                        <p>🕐 Пн–Вс: 08:00 – 22:00</p>
+                        <p>⭐ 4.9 / 5 — Более 1200 отзывов</p>
+                        <p class="bakery-desc">Премиальная кондитерская с авторскими тортами, европейской выпечкой и кофе-баром.</p>
+                        <div class="bakery-tags"><span>Торты на заказ</span><span>Доставка</span><span>Кофе</span></div>
+                    </div>
+                </div>
+                <div class="bakery-item">
+                    <div class="bakery-img"><img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=300&q=80" alt="Пекарня"/></div>
+                    <div class="bakery-info">
+                        <h3>«Аида Бейкери»</h3>
+                        <p>📍 мкр. Джал, 8а, Бишкек</p>
+                        <p>📞 +996 700 123-456</p>
+                        <p>🕐 Пн–Пт: 07:00 – 21:00</p>
+                        <p>⭐ 4.7 / 5 — Более 800 отзывов</p>
+                        <p class="bakery-desc">Семейная пекарня с 20-летней историей. Знаменита слойками с орехами и домашним печеньем.</p>
+                        <div class="bakery-tags"><span>Слойки</span><span>Печенье</span><span>Кексы</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="city-panel" id="city-osh">
+            <div class="bakery-list">
+                <div class="bakery-item">
+                    <div class="bakery-img"><img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?w=300&q=80" alt="Ош"/></div>
+                    <div class="bakery-info">
+                        <h3>«Жибек Жолу» — Южная кондитерская</h3>
+                        <p>📍 ул. Ленина, 34, Ош</p>
+                        <p>📞 +996 3222 56-78-90</p>
+                        <p>🕐 Пн–Вс: 09:00 – 21:00</p>
+                        <p>⭐ 4.8 / 5 — Более 950 отзывов</p>
+                        <p class="bakery-desc">Лучшая кондитерская на юге страны. Национальные сладости, боорсок, жент и современные десерты.</p>
+                        <div class="bakery-tags"><span>Национальные</span><span>Халяль</span><span>Опт</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="city-panel" id="city-jalal">
+            <div class="bakery-list">
+                <div class="bakery-item">
+                    <div class="bakery-img"><img src="https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?w=300&q=80" alt="Джалал-Абад"/></div>
+                    <div class="bakery-info">
+                        <h3>«Гюльнара» — Домашняя выпечка</h3>
+                        <p>📍 ул. Токтогула, 12, Джалал-Абад</p>
+                        <p>📞 +996 3722 2-45-67</p>
+                        <p>🕐 Пн–Сб: 08:00 – 20:00</p>
+                        <p>⭐ 4.6 / 5 — Более 400 отзывов</p>
+                        <p class="bakery-desc">Домашняя пекарня с натуральными ингредиентами. Хвалят ореховые пирожные и мёдовик.</p>
+                        <div class="bakery-tags"><span>Домашние рецепты</span><span>Натуральный мёд</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="city-panel" id="city-karakol">
+            <div class="bakery-list">
+                <div class="bakery-item">
+                    <div class="bakery-img"><img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=300&q=80" alt="Каракол"/></div>
+                    <div class="bakery-info">
+                        <h3>«Иссык-Куль Свит»</h3>
+                        <p>📍 ул. Гагарина, 5, Каракол</p>
+                        <p>📞 +996 3922 5-23-11</p>
+                        <p>🕐 Пн–Вс: 08:00 – 20:00</p>
+                        <p>⭐ 4.9 / 5 — Более 600 отзывов</p>
+                        <p class="bakery-desc">Популярна среди туристов. Пирожные с облепихой и чай на горных травах.</p>
+                        <div class="bakery-tags"><span>Облепиха</span><span>Туристам</span><span>Подарки</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="recipes" id="recipes">
+    <div class="container">
+        <div class="section-header light">
+            <span class="section-eyebrow">Приготовь сам</span>
+            <h2 class="section-title">Традиционные рецепты</h2>
+        </div>
+        <div class="recipes-grid">
+            <div class="recipe-card">
+                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&q=80" alt="Боорсок"/></div>
+                <div class="recipe-body">
+                    <h3>Боорсок</h3>
+                    <p>Традиционные жареные лепёшки из теста</p>
+                    <div class="recipe-meta"><span>⏱ 40 мин</span><span>👨‍🍳 Просто</span><span>🍽 10 порций</span></div>
+                    <button class="recipe-open-btn" data-recipe="boorsok">Открыть рецепт</button>
+                </div>
+                <div class="recipe-panel" id="recipe-boorsok">
+                    <h4>Ингредиенты:</h4>
+                    <ul><li>Мука — 500 г</li><li>Молоко — 200 мл</li><li>Яйца — 2 шт</li><li>Сахар — 2 ст.л.</li><li>Соль — 1 ч.л.</li><li>Масло для жарки</li></ul>
+                    <h4>Приготовление:</h4>
+                    <ol><li>Замесите мягкое тесто из всех ингредиентов.</li><li>Дайте постоять 20 минут под полотенцем.</li><li>Раскатайте 1 см толщиной и нарежьте ромбиками.</li><li>Жарьте в кипящем масле до золотистого цвета.</li><li>Подавайте с мёдом или вареньем.</li></ol>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=400&q=80" alt="Чак-чак"/></div>
+                <div class="recipe-body">
+                    <h3>Чак-чак</h3>
+                    <p>Восточная сладость из жареного теста с мёдом</p>
+                    <div class="recipe-meta"><span>⏱ 60 мин</span><span>👨‍🍳 Средний</span><span>🍽 8 порций</span></div>
+                    <button class="recipe-open-btn" data-recipe="chakchak">Открыть рецепт</button>
+                </div>
+                <div class="recipe-panel" id="recipe-chakchak">
+                    <h4>Ингредиенты:</h4>
+                    <ul><li>Мука — 300 г</li><li>Яйца — 3 шт</li><li>Мёд — 150 г</li><li>Сахар — 100 г</li><li>Орехи — по вкусу</li></ul>
+                    <h4>Приготовление:</h4>
+                    <ol><li>Замесите крутое тесто из яиц и муки.</li><li>Раскатайте тонко и нарежьте полосками.</li><li>Жарьте в масле до золотистого цвета.</li><li>Растопите мёд с сахаром и полейте тесто.</li><li>Сформируйте горку и дайте застыть 30 минут.</li></ol>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <div class="recipe-img"><img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&q=80" alt="Жент"/></div>
+                <div class="recipe-body">
+                    <h3>Жент</h3>
+                    <p>Национальная сладость из таласского пшена</p>
+                    <div class="recipe-meta"><span>⏱ 30 мин</span><span>👨‍🍳 Просто</span><span>🍽 12 порций</span></div>
+                    <button class="recipe-open-btn" data-recipe="jent">Открыть рецепт</button>
+                </div>
+                <div class="recipe-panel" id="recipe-jent">
+                    <h4>Ингредиенты:</h4>
+                    <ul><li>Пшено жареное — 400 г</li><li>Масло сливочное — 150 г</li><li>Сахар — 200 г</li><li>Курут молотый — 50 г</li></ul>
+                    <h4>Приготовление:</h4>
+                    <ol><li>Растопите масло с сахаром до однородности.</li><li>Смешайте с жареным пшеном и курутом.</li><li>Перемешайте до образования массы.</li><li>Сформируйте шарики или нарежьте кусочками.</li><li>Остудите и подавайте к чаю.</li></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">Вдохновение</span>
+            <h2 class="section-title">Галерея сладостей</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item tall"><img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&q=80" alt="Торт"/></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80" alt="Пирожные"/></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562591718-32b7dc29f4bb?w=400&q=80" alt="Макаруны"/></div>
+            <div class="gallery-item wide"><img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80" alt="Десерты"/></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=400&q=80" alt="Шоколад"/></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&q=80" alt="Кексы"/></div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-eyebrow">Свяжитесь с нами</span>
+            <h2 class="section-title">Контакты</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div><strong>Главный офис</strong><p>ул. Киевская, 88, Бишкек</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div><strong>Телефон</strong><p>+996 312 99-88-77</p><p>+996 700 55-44-33</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div><strong>Email</strong><p>info@sweetkg.com</p></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕐</div>
+                    <div><strong>Режим работы</strong><p>Пн–Пт: 09:00 – 18:00</p><p>Сб–Вс: 10:00 – 16:00</p></div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-btn">Instagram</a>
+                    <a href="#" class="social-btn">WhatsApp</a>
+                    <a href="#" class="social-btn">Telegram</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Оставьте заявку</h3>
+                <div class="form-group"><input type="text" id="f-name" placeholder="Ваше имя"/></div>
+                <div class="form-group"><input type="tel" id="f-phone" placeholder="Номер телефона"/></div>
+                <div class="form-group">
+                    <select id="f-type">
+                        <option value="">Тип заказа</option>
+                        <option>Свадебный торт</option>
+                        <option>Праздничный торт</option>
+                        <option>Корпоративный заказ</option>
+                        <option>Национальные сладости</option>
+                    </select>
+                </div>
+                <div class="form-group"><textarea id="f-msg" placeholder="Опишите ваш заказ..."></textarea></div>
+                <button class="btn btn-primary btn-full" id="submit-btn">Отправить заявку</button>
+                <div class="form-success" id="form-success">✅ Спасибо! Мы свяжемся с вами в течение часа.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">🍰 Сладкий Кыргызстан</div>
+                <p class="footer-desc">Объединяем лучшие кондитерские страны. Традиции и современность в каждом десерте.</p>
+            </div>
+            <div>
+                <h4>Разделы</h4>
+                <ul><li><a href="#catalog">Каталог</a></li><li><a href="#bakeries">Кондитерские</a></li><li><a href="#recipes">Рецепты</a></li></ul>
+            </div>
+            <div>
+                <h4>Города</h4>
+                <ul><li>Бишкек</li><li>Ош</li><li>Джалал-Абад</li><li>Каракол</li></ul>
+            </div>
+            <div>
+                <h4>Информация</h4>
+                <ul><li><a href="#">О проекте</a></li><li><a href="#">Добавить кондитерскую</a></li><li><a href="#">Реклама</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>©️ 2026 Сладкий Кыргызстан. Сделано с ❤️ в Бишкеке</p></div>
+    </div>
+</footer>
+
+<button class="back-to-top" id="backToTop">▲</button>
+<script src="script.js"></script>
+</body>
+</html>

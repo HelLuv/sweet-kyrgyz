@@ -51,10 +51,12 @@ const navLinks = document.querySelector('.nav-links');
 function closeMobileMenu() {
     navLinks.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Открыть меню');
 }
 burger.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     burger.setAttribute('aria-expanded', String(isOpen));
+    burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
 });
 
 // Smooth scroll
@@ -185,6 +187,7 @@ document.querySelectorAll('.recipe-open-btn').forEach(btn => {
 // Gallery carousel
 const galleryTrack = document.querySelector('.gallery-track');
 const gallerySlides = document.querySelectorAll('.gallery-item');
+const galleryCarousel = document.querySelector('.gallery-carousel');
 const galleryPrev = document.querySelector('.gallery-arrow-prev');
 const galleryNext = document.querySelector('.gallery-arrow-next');
 let galleryIndex = 0;
@@ -223,6 +226,17 @@ function moveGallery(direction) {
 
 galleryPrev?.addEventListener('click', () => moveGallery(-1));
 galleryNext?.addEventListener('click', () => moveGallery(1));
+galleryCarousel?.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        moveGallery(-1);
+    }
+
+    if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        moveGallery(1);
+    }
+});
 window.addEventListener('resize', updateGallery);
 updateGallery();
 

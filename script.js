@@ -182,6 +182,50 @@ document.querySelectorAll('.recipe-open-btn').forEach(btn => {
     });
 });
 
+// Gallery carousel
+const galleryTrack = document.querySelector('.gallery-track');
+const gallerySlides = document.querySelectorAll('.gallery-item');
+const galleryPrev = document.querySelector('.gallery-arrow-prev');
+const galleryNext = document.querySelector('.gallery-arrow-next');
+let galleryIndex = 0;
+
+function getVisibleGallerySlides() {
+    if (!galleryTrack) return 1;
+
+    const count = parseInt(getComputedStyle(galleryTrack.parentElement).getPropertyValue('--visible-slides'), 10);
+    return Number.isNaN(count) ? 1 : count;
+}
+
+function getMaxGalleryIndex() {
+    return Math.max(gallerySlides.length - getVisibleGallerySlides(), 0);
+}
+
+function updateGallery() {
+    if (!galleryTrack || !gallerySlides.length) return;
+
+    const gap = parseFloat(getComputedStyle(galleryTrack).gap) || 0;
+    const slideWidth = gallerySlides[0].getBoundingClientRect().width + gap;
+    galleryIndex = Math.min(galleryIndex, getMaxGalleryIndex());
+    galleryTrack.style.transform = `translateX(-${galleryIndex * slideWidth}px)`;
+}
+
+function moveGallery(direction) {
+    if (!gallerySlides.length) return;
+
+    const maxIndex = getMaxGalleryIndex();
+    galleryIndex = galleryIndex + direction;
+
+    if (galleryIndex < 0) galleryIndex = maxIndex;
+    if (galleryIndex > maxIndex) galleryIndex = 0;
+
+    updateGallery();
+}
+
+galleryPrev?.addEventListener('click', () => moveGallery(-1));
+galleryNext?.addEventListener('click', () => moveGallery(1));
+window.addEventListener('resize', updateGallery);
+updateGallery();
+
 // Form submit
 document.getElementById('submit-btn').addEventListener('click', () => {
     const name = document.getElementById('f-name').value.trim();
@@ -213,7 +257,7 @@ const animObs = new IntersectionObserver((entries) => {
         if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; animObs.unobserve(e.target); }
     });
 }, { threshold: 0.1 });
-document.querySelectorAll('.product-card, .bakery-item, .recipe-card, .gallery-item, .contact-item').forEach(el => {
+document.querySelectorAll('.product-card, .bakery-item, .recipe-card, .gallery-carousel, .contact-item').forEach(el => {
     el.style.cssText += 'opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease';
     animObs.observe(el);
 });
